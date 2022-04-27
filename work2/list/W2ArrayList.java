@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class W2ArrayList<T> extends W2List<T> {
 
-    private T[] array = (T[]) new Object[1];
+    private T[] array = (T[]) new Object[1]; // на этот cast Idea жалуется. вопрос: как правлильно сделать?
     private int iteratorIndex;
     private final Iterator<T> iterator = new Iterator<>() {
         @Override
@@ -32,7 +32,7 @@ public class W2ArrayList<T> extends W2List<T> {
     private void resize() {
         Object[] newArray = new Object[size * 2];
         System.arraycopy(array, 0, newArray, 0, size);
-        array = (T[]) newArray;
+        array = (T[]) newArray; // тут то-же самое
     }
 
     @Override
